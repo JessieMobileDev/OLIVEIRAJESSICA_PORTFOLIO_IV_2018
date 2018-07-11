@@ -66,6 +66,9 @@
                                 <state key="normal" title="Go!">
                                     <color key="titleColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="registerUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cCO-HH-5yQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhD-uJ-Le1">
                                 <rect key="frame" x="28.5" y="468" width="128" height="30"/>
@@ -77,6 +80,13 @@
                                     <segue destination="gn2-cn-04y" kind="show" id="Gor-HX-WHH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ra7-dJ-f0u">
+                                <rect key="frame" x="38" y="558" width="243" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -109,6 +119,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="msg" destination="Ra7-dJ-f0u" id="ArI-mS-mNi"/>
                         <outlet property="reg_email_txtField" destination="tpg-A2-lno" id="oY0-f1-tKd"/>
                         <outlet property="reg_pw_txtField" destination="ujM-ae-ZKH" id="1Fk-fL-5A4"/>
                         <outlet property="reg_username_txtField" destination="Pp1-JI-ng3" id="AAK-Ue-lbG"/>

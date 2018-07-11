@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		429B45663973A34EF524B840 /* Pods_OLIVEIRAJESSICA_DAILYQUESTS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE78CA6A4A150794F52BACB4 /* Pods_OLIVEIRAJESSICA_DAILYQUESTS.framework */; };
+		4CB18DF120F658C2001CE9AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CB18DF020F658C2001CE9AE /* GoogleService-Info.plist */; };
 		4CC0635620F5AA5D00B2E1BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0635520F5AA5D00B2E1BC /* AppDelegate.swift */; };
 		4CC0635820F5AA5D00B2E1BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0635720F5AA5D00B2E1BC /* ViewController.swift */; };
 		4CC0635B20F5AA5D00B2E1BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC0635920F5AA5D00B2E1BC /* Main.storyboard */; };
@@ -35,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4CB18DF020F658C2001CE9AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4CC0635220F5AA5D00B2E1BC /* OLIVEIRAJESSICA_DAILYQUESTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OLIVEIRAJESSICA_DAILYQUESTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC0635520F5AA5D00B2E1BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CC0635720F5AA5D00B2E1BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +52,9 @@
 		4CC0637520F5AA5F00B2E1BC /* OLIVEIRAJESSICA_DAILYQUESTSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLIVEIRAJESSICA_DAILYQUESTSUITests.swift; sourceTree = "<group>"; };
 		4CC0637720F5AA5F00B2E1BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CC0638320F647AC00B2E1BC /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		BE78CA6A4A150794F52BACB4 /* Pods_OLIVEIRAJESSICA_DAILYQUESTS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OLIVEIRAJESSICA_DAILYQUESTS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDB52D17EDB23E755D328D02 /* Pods-OLIVEIRAJESSICA_DAILYQUESTS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLIVEIRAJESSICA_DAILYQUESTS.release.xcconfig"; path = "Pods/Target Support Files/Pods-OLIVEIRAJESSICA_DAILYQUESTS/Pods-OLIVEIRAJESSICA_DAILYQUESTS.release.xcconfig"; sourceTree = "<group>"; };
+		D773147AB57919D73C77AD7F /* Pods-OLIVEIRAJESSICA_DAILYQUESTS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLIVEIRAJESSICA_DAILYQUESTS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OLIVEIRAJESSICA_DAILYQUESTS/Pods-OLIVEIRAJESSICA_DAILYQUESTS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429B45663973A34EF524B840 /* Pods_OLIVEIRAJESSICA_DAILYQUESTS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32E86351F34D567ED73EC69C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D773147AB57919D73C77AD7F /* Pods-OLIVEIRAJESSICA_DAILYQUESTS.debug.xcconfig */,
+				CDB52D17EDB23E755D328D02 /* Pods-OLIVEIRAJESSICA_DAILYQUESTS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4CC0634920F5AA5D00B2E1BC = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +99,8 @@
 				4CC0636920F5AA5F00B2E1BC /* OLIVEIRAJESSICA_DAILYQUESTSTests */,
 				4CC0637420F5AA5F00B2E1BC /* OLIVEIRAJESSICA_DAILYQUESTSUITests */,
 				4CC0635320F5AA5D00B2E1BC /* Products */,
+				32E86351F34D567ED73EC69C /* Pods */,
+				55F5F24EB89D96D501FCA6FF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +117,7 @@
 		4CC0635420F5AA5D00B2E1BC /* OLIVEIRAJESSICA_DAILYQUESTS */ = {
 			isa = PBXGroup;
 			children = (
+				4CB18DF020F658C2001CE9AE /* GoogleService-Info.plist */,
 				4CC0635520F5AA5D00B2E1BC /* AppDelegate.swift */,
 				4CC0635720F5AA5D00B2E1BC /* ViewController.swift */,
 				4CC0638320F647AC00B2E1BC /* LogInViewController.swift */,
@@ -128,6 +147,14 @@
 			path = OLIVEIRAJESSICA_DAILYQUESTSUITests;
 			sourceTree = "<group>";
 		};
+		55F5F24EB89D96D501FCA6FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE78CA6A4A150794F52BACB4 /* Pods_OLIVEIRAJESSICA_DAILYQUESTS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CC0637A20F5AA5F00B2E1BC /* Build configuration list for PBXNativeTarget "OLIVEIRAJESSICA_DAILYQUESTS" */;
 			buildPhases = (
+				D1213BCBFB05B1EB3AEBC270 /* [CP] Check Pods Manifest.lock */,
 				4CC0634E20F5AA5D00B2E1BC /* Sources */,
 				4CC0634F20F5AA5D00B2E1BC /* Frameworks */,
 				4CC0635020F5AA5D00B2E1BC /* Resources */,
+				69C8A7C7991195885307FFD5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CC0636020F5AA5F00B2E1BC /* LaunchScreen.storyboard in Resources */,
+				4CB18DF120F658C2001CE9AE /* GoogleService-Info.plist in Resources */,
 				4CC0635D20F5AA5F00B2E1BC /* Assets.xcassets in Resources */,
 				4CC0635B20F5AA5D00B2E1BC /* Main.storyboard in Resources */,
 			);
@@ -253,6 +283,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		69C8A7C7991195885307FFD5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OLIVEIRAJESSICA_DAILYQUESTS/Pods-OLIVEIRAJESSICA_DAILYQUESTS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OLIVEIRAJESSICA_DAILYQUESTS/Pods-OLIVEIRAJESSICA_DAILYQUESTS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1213BCBFB05B1EB3AEBC270 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OLIVEIRAJESSICA_DAILYQUESTS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4CC0634E20F5AA5D00B2E1BC /* Sources */ = {
@@ -432,6 +501,7 @@
 		};
 		4CC0637B20F5AA5F00B2E1BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D773147AB57919D73C77AD7F /* Pods-OLIVEIRAJESSICA_DAILYQUESTS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -450,6 +520,7 @@
 		};
 		4CC0637C20F5AA5F00B2E1BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDB52D17EDB23E755D328D02 /* Pods-OLIVEIRAJESSICA_DAILYQUESTS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
