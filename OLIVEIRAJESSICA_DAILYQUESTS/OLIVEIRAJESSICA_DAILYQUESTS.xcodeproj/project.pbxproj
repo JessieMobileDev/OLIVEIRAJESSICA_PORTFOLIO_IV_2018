@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		429B45663973A34EF524B840 /* Pods_OLIVEIRAJESSICA_DAILYQUESTS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE78CA6A4A150794F52BACB4 /* Pods_OLIVEIRAJESSICA_DAILYQUESTS.framework */; };
+		4C1C6D4A20F68543009B67B7 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C6D4920F68543009B67B7 /* MainMenuViewController.swift */; };
 		4CB18DF120F658C2001CE9AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CB18DF020F658C2001CE9AE /* GoogleService-Info.plist */; };
 		4CC0635620F5AA5D00B2E1BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0635520F5AA5D00B2E1BC /* AppDelegate.swift */; };
 		4CC0635820F5AA5D00B2E1BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0635720F5AA5D00B2E1BC /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C1C6D4920F68543009B67B7 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		4CB18DF020F658C2001CE9AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4CC0635220F5AA5D00B2E1BC /* OLIVEIRAJESSICA_DAILYQUESTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OLIVEIRAJESSICA_DAILYQUESTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC0635520F5AA5D00B2E1BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				4CC0635520F5AA5D00B2E1BC /* AppDelegate.swift */,
 				4CC0635720F5AA5D00B2E1BC /* ViewController.swift */,
 				4CC0638320F647AC00B2E1BC /* LogInViewController.swift */,
+				4C1C6D4920F68543009B67B7 /* MainMenuViewController.swift */,
 				4CC0635920F5AA5D00B2E1BC /* Main.storyboard */,
 				4CC0635C20F5AA5F00B2E1BC /* Assets.xcassets */,
 				4CC0635E20F5AA5F00B2E1BC /* LaunchScreen.storyboard */,
@@ -328,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C1C6D4A20F68543009B67B7 /* MainMenuViewController.swift in Sources */,
 				4CC0635820F5AA5D00B2E1BC /* ViewController.swift in Sources */,
 				4CC0635620F5AA5D00B2E1BC /* AppDelegate.swift in Sources */,
 				4CC0638420F647AC00B2E1BC /* LogInViewController.swift in Sources */,

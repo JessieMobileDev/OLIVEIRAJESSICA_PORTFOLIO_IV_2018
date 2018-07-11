@@ -17,8 +17,12 @@ class ViewController: UIViewController
     @IBOutlet weak var reg_pw_txtField: UITextField!
     @IBOutlet weak var msg: UILabel!
     
-    // Define a variable that holds the url for accessing the register API
+    // APIs urls
     let register_url = "http://dailyquests.club/JessyServer/v1/register.php"
+    //let userInfo = ""
+    
+    // Variables
+    var userData: (username: String, email: String, currentAvatar: Int, exp: Int, coins: Int, badges: Int, achievements: Int) = ("", "", 0, 0, 0, 0, 0)
     
     override func viewDidLoad()
     {

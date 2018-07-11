@@ -6,6 +6,7 @@
 //  Copyright © 2018 Jessica. All rights reserved.
 //
 
+import Alamofire
 import UIKit
 
 class LogInViewController: UIViewController
@@ -13,17 +14,84 @@ class LogInViewController: UIViewController
     // Outlets
     @IBOutlet weak var login_username_txtField: UITextField!
     @IBOutlet weak var login_pw_txtField: UITextField!
+    @IBOutlet weak var msg: UILabel!
+    
+    // API url
+    let login_url = "http://dailyquests.club/JessyServer/v1/login.php"
+    
+    // UserDefaults to store user data
+    let defaultValues = UserDefaults.standard
     
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        // If the user is already logged in switching to MainMenuViewController
+        let mainMenuViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuScreen") as! MainMenuViewController
+        self.navigationController?.pushViewController(mainMenuViewController, animated: true)
     }
 
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
     }
+    
+    // Button to log-in
+    @IBAction func loginUser(_ sender: UIButton)
+    {
+        // Getting the username and password
+        let parameters: Parameters = ["username":login_username_txtField.text!, "password":login_pw_txtField.text!]
+        
+        let headers: HTTPHeaders = [
+            "X-Mashape-Key": login_url,
+            "Accept": "application/json"
+        ]
+        
+        // Making a post request
+        Alamofire.request(login_url, method: .post, parameters: parameters, headers: headers).responseJSON
+        { (response) in
+            print("1. \(response)")
+            
+            // Getting the json value from the server
+            if let result = response.result.value
+            {
+                print("2. \(String(describing: response.result.value))")
+                
+                let jsonData = result as! NSDictionary
+                print("3. \(jsonData)")
+                
+                // If there is no error
+                if (!(jsonData.value(forKey: "error") as! Bool))
+                {
+                    // Getting the user from response
+                    let user = jsonData.value(forKey: "user") as! NSDictionary
+                    
+                    // Getting user values
+                    let userId = user.value(forKey: "userId") as! Int
+                    let userName = user.value(forKey: "username") as! String
+                    let userEmail = user.value(forKey: "email") as! String
+                    
+                    // Saving user values to defaults
+                    self.defaultValues.set(userId, forKey: "userid")
+                    self.defaultValues.set(userName, forKey: "username")
+                    self.defaultValues.set(userEmail, forKey: "useremail")
+                    
+                    // Switching to the main menu screen
+                    let mainMenuViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuScreen") as! MainMenuViewController
+                    self.navigationController?.pushViewController(mainMenuViewController, animated: true)
+                    
+                    self.dismiss(animated: false, completion: nil)
+                }
+                else
+                {
+                    // Error message in case of invalid credential
+                    self.msg.text = "Invalid username or password!"
+                }
+            }
+        }
+    }
+    
     
     @IBAction func dismissToRegister(_ sender: UIButton)
     {
