@@ -55,11 +55,21 @@ class ViewController: UIViewController
                 let jsonData = result as! NSDictionary
                 
                 // Displaying the message in label for testing purposes
-                self.msg.text = jsonData.value(forKey: "message") as! String?
+                let returnMessage = jsonData.value(forKey: "message") as! String?
+                self.msg.text = returnMessage
+                
+                // If the user was successfully created, then move to the Main Menu Screen
+                if returnMessage == "User created successfully"
+                {
+                    self.performSegue(withIdentifier: "registerGo", sender: self)
+                }
             }
         }
+        
+        
 
     }
+    
     
 
 }
