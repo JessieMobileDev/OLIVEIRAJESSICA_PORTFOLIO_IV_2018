@@ -47,19 +47,15 @@ class LogInViewController: UIViewController
         // Getting the username and password
         let parameters: Parameters = ["username":login_username_txtField.text!, "password":login_pw_txtField.text!]
         
+        print("username: \(login_username_txtField.text!)... pw: \(login_pw_txtField.text!)")
         
         // Making a post request
         Alamofire.request(login_url, method: .post, parameters: parameters).responseJSON
         { (response) in
-            print("1. \(response)")
-            
             // Getting the json value from the server
             if let result = response.result.value
             {
-                print("2. \(String(describing: response.result.value))")
-                
                 let jsonData = result as! NSDictionary
-                print("3. \(jsonData)")
                 
                 // If there is no error
                 if (!(jsonData.value(forKey: "error") as! Bool))
@@ -68,26 +64,31 @@ class LogInViewController: UIViewController
                     let user = jsonData.value(forKey: "user") as! NSDictionary
                     
                     // Getting user values
-                    //let userId = user.value(forKey: "userId") as! Int
+                    let userId = user.value(forKey: "id") as! Int
                     let userName = user.value(forKey: "username") as! String
                     let userEmail = user.value(forKey: "email") as! String
                     
                     // Saving user values to defaults
-                    //self.defaultValues.set(userId, forKey: "userid")
+                    self.defaultValues.set(userId, forKey: "userid")
                     self.defaultValues.set(userName, forKey: "username")
                     self.defaultValues.set(userEmail, forKey: "useremail")
                     
-                    // Switching to the main menu screen
-                    let mainMenuViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuScreen") as! MainMenuViewController
-                    self.navigationController?.pushViewController(mainMenuViewController, animated: true)
+                    print("1. \(self.defaultValues.integer(forKey: "userid"))")
+                    print("2. \(String(describing: self.defaultValues.string(forKey: "username")))")
+                    print("3. \(String(describing: self.defaultValues.string(forKey: "useremail")))")
                     
-                    self.dismiss(animated: false, completion: nil)
+                    // Switching to the main menu screen
+                    self.performSegue(withIdentifier: "loginGo", sender: self)
                 }
                 else
                 {
                     // Error message in case of invalid credential
                     self.msg.text = "Invalid username or password!"
                 }
+            }
+            else
+            {
+                print("response failed to retrieve")
             }
         }
     }

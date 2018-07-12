@@ -6,6 +6,7 @@
 //  Copyright © 2018 Jessica. All rights reserved.
 //
 
+import Alamofire
 import UIKit
 
 class MainMenuViewController: UIViewController
@@ -17,6 +18,20 @@ class MainMenuViewController: UIViewController
     @IBOutlet weak var coins_label: UILabel!
     @IBOutlet weak var badges_label: UILabel!
     @IBOutlet weak var achievements_label: UILabel!
+    
+    // APIs urls
+    let readExperience = "http://dailyquests.club/JessyServer/v1/getexp.php"
+    let readCoins = "http://dailyquests.club/JessyServer/v1/getcoins.php"
+    let readAchievements = "http://dailyquests.club/JessyServer/v1/getachievements.php"
+    let readBadges = "http://dailyquests.club/JessyServer/v1/getbadges.php"
+    
+    // Variables
+    var tempUsername: String = ""
+    var tempEmail: String = ""
+    var expCount: Int = 0
+    var coinsCount: Int = 0
+    var badgesCount: Int = 0
+    var achieveCount: Int = 0
     
     // Variables
     //var receivedUserData: (username: String, email: String, currentAvatar: Int, exp: Int, coins: Int, badges: Int, achievements: Int)?
@@ -31,13 +46,49 @@ class MainMenuViewController: UIViewController
         if defaultValues.string(forKey: "username") != nil && defaultValues.string(forKey: "useremail") != nil
         {
             // Updating only username and email labels
-            username_label.text = defaultValues.string(forKey: "username")
-            email_label.text = defaultValues.string(forKey: "useremail")
+            tempUsername = defaultValues.string(forKey: "username")!
+            tempEmail = defaultValues.string(forKey: "useremail")!
+            username_label.text = tempUsername
+            email_label.text = tempEmail
         }
         else
         {
             switchToLogInScreen()
         }
+        
+//        let parameters: Parameters = ["username":tempUsername]
+//
+//        // Making a request
+//        Alamofire.request(readExperience, method: .post, parameters: parameters).responseJSON
+//        { (response) in
+//
+//            print(response)
+//
+//            // Getting the json value from the server
+//            if let result = response.result.value
+//            {
+//                let jsonData = result as! NSDictionary
+//                 print(jsonData)
+//                // If there is no error
+//                //if (!(jsonData.value(forKey: "error") as! Bool))
+//                //{
+//                    // Getting Data from response
+//                    let userData = jsonData.value(forKey: "Data") as! NSDictionary
+//
+//                    // Getting second-level data
+//                    let userExp = userData.value(forKey: "experience") as! [Int]
+//
+//                    // Stores data locally only to update labels
+//                    self.expCount = userExp[0]
+//                    self.level_label.text = "Exp: \(self.expCount)"
+//                //}
+//
+//
+//            }
+//        }
+        
+        
+        
         
 //        if let userName = defaultValues.string(forKey: "username")
 //        {
@@ -92,10 +143,14 @@ class MainMenuViewController: UIViewController
     // Marketplace Button
     @IBAction func goToMarketplace(_ sender: UIButton)
     {
-        
+        // Sends to the marketplace screen
+        performSegue(withIdentifier: "marketplaceGo", sender: self)
     }
     
-    
+    func retrieveUserData()
+    {
+        //let expParameters = Parameters = ["username":defaultValues.string(forKey: "username")]
+    }
     
     
     /*
