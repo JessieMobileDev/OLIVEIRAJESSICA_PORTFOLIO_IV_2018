@@ -6,6 +6,7 @@
 //  Copyright © 2018 Jessica. All rights reserved.
 //
 
+import Alamofire
 import UIKit
 
 class ColorThemesViewController: UIViewController
@@ -13,10 +14,19 @@ class ColorThemesViewController: UIViewController
     // Outlets
     @IBOutlet weak var userCoins_label: UILabel!
     
+    @IBOutlet var purchaseButtons: [UIButton]!
+    
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        // Rounding purchase buttons' edges
+        for button in purchaseButtons
+        {
+            button.clipsToBounds = true
+            button.layer.cornerRadius = 5
+        }
     }
 
     override func didReceiveMemoryWarning()
@@ -29,7 +39,10 @@ class ColorThemesViewController: UIViewController
         self.dismiss(animated: true, completion: nil)
     }
     
-    
+    func retrieveCoins()
+    {
+        
+    }
     /*
     // MARK: - Navigation
 

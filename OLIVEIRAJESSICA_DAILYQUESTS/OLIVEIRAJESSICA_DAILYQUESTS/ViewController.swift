@@ -62,6 +62,11 @@ class ViewController: UIViewController
                 if returnMessage == "User created successfully"
                 {
                     self.performSegue(withIdentifier: "registerGo", sender: self)
+                    
+                    // Clears whatever is still written in the text fields
+                    self.reg_username_txtField.text = ""
+                    self.reg_pw_txtField.text = ""
+                    self.reg_email_txtField.text = ""
                 }
             }
         }

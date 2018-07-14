@@ -52,17 +52,21 @@ class LogInViewController: UIViewController
         // Making a post request
         Alamofire.request(login_url, method: .post, parameters: parameters).responseJSON
         { (response) in
+            
+            print(response)
             // Getting the json value from the server
             if let result = response.result.value
             {
                 let jsonData = result as! NSDictionary
                 
+                print(jsonData)
                 // If there is no error
                 if (!(jsonData.value(forKey: "error") as! Bool))
                 {
                     // Getting the user from response
                     let user = jsonData.value(forKey: "user") as! NSDictionary
                     
+                    print(user)
                     // Getting user values
                     let userId = user.value(forKey: "id") as! Int
                     let userName = user.value(forKey: "username") as! String
@@ -79,6 +83,10 @@ class LogInViewController: UIViewController
                     
                     // Switching to the main menu screen
                     self.performSegue(withIdentifier: "loginGo", sender: self)
+                    
+                    // Clear whatever is written in the username and password text fields
+                    self.login_username_txtField.text = ""
+                    self.login_pw_txtField.text = ""
                 }
                 else
                 {

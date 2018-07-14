@@ -10,10 +10,20 @@ import UIKit
 
 class MarketplaceViewController: UIViewController
 {
-
+    // Outlets
+    @IBOutlet var marketButtons: [UIView]!
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        // Rounding views' edges
+        for view in marketButtons
+        {
+            view.clipsToBounds = true
+            view.layer.cornerRadius = 5
+        }
     }
 
     override func didReceiveMemoryWarning()
