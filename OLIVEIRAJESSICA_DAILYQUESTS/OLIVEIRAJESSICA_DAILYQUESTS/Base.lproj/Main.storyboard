@@ -479,7 +479,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wzp-Yd-A0Q" userLabel="Marketplace Button">
                                         <rect key="frame" x="0.0" y="-0.5" width="335" height="59.5"/>
                                         <connections>
-                                            <action selector="goToMarketplace:" destination="0cb-sK-AFb" eventType="touchUpInside" id="eMe-Qs-Wjg"/>
+                                            <segue destination="A5n-V8-g62" kind="show" id="hxe-gy-RmT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -559,7 +559,6 @@
                         <outletCollection property="mainMenuButtons" destination="OEN-yL-SWu" collectionClass="NSMutableArray" id="BA1-hc-Stq"/>
                         <outletCollection property="mainMenuButtons" destination="U5M-fz-ydy" collectionClass="NSMutableArray" id="4Ao-FH-rmG"/>
                         <outletCollection property="mainMenuButtons" destination="JsP-QW-HAu" collectionClass="NSMutableArray" id="FBJ-FH-SJJ"/>
-                        <segue destination="A5n-V8-g62" kind="show" identifier="marketplaceGo" id="AIN-9e-6Bq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qLj-rn-5TJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -652,7 +651,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDE-tZ-Mvf" userLabel="ColorThemesButton">
                                 <rect key="frame" x="30" y="386.5" width="315" height="200"/>
                                 <connections>
-                                    <action selector="goToColorThemes:" destination="A5n-V8-g62" eventType="touchUpInside" id="qQi-vm-F4g"/>
+                                    <segue destination="mKJ-bq-sfa" kind="show" id="B4m-5s-Z2U"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -680,7 +679,6 @@
                     <connections>
                         <outletCollection property="marketButtons" destination="T1x-ng-EO0" collectionClass="NSMutableArray" id="BUU-4A-F6Z"/>
                         <outletCollection property="marketButtons" destination="zpJ-aZ-elB" collectionClass="NSMutableArray" id="j5n-V4-2nB"/>
-                        <segue destination="mKJ-bq-sfa" kind="show" identifier="colorthemesGo" id="dXa-16-66n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUm-po-dml" userLabel="First Responder" sceneMemberID="firstResponder"/>

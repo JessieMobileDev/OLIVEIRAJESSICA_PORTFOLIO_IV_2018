@@ -130,11 +130,15 @@ class MainMenuViewController: UIViewController
         self.dismiss(animated: false, completion: nil)
     }
 
-    // Marketplace Button
-    @IBAction func goToMarketplace(_ sender: UIButton)
+    // The following segue passes the coins to the marketplace view controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        // Sends to the marketplace screen
-        performSegue(withIdentifier: "marketplaceGo", sender: self)
+        // Prepare the variable thar will be sent forward
+        let playerCoins = coinsCount
+        
+        // Passing the data
+        guard let destination = segue.destination as? MarketplaceViewController else { return }
+        destination.userCoins = playerCoins
     }
     
     func retrieveUserData()

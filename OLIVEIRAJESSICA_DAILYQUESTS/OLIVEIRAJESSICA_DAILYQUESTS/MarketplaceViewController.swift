@@ -13,6 +13,10 @@ class MarketplaceViewController: UIViewController
     // Outlets
     @IBOutlet var marketButtons: [UIView]!
     
+    // Variable to receive coins value through segue
+    var userCoins: Int?
+    var tempCoins: Int = 0
+    
     
     override func viewDidLoad()
     {
@@ -24,6 +28,10 @@ class MarketplaceViewController: UIViewController
             view.clipsToBounds = true
             view.layer.cornerRadius = 5
         }
+        
+        // Assigning received coins value to a local variable
+        tempCoins = userCoins!
+        print(tempCoins)
     }
 
     override func didReceiveMemoryWarning()
@@ -31,14 +39,20 @@ class MarketplaceViewController: UIViewController
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func goToColorThemes(_ sender: UIButton)
-    {
-        performSegue(withIdentifier: "colorthemesGo", sender: self)
-    }
-    
     @IBAction func goBackOneLevel(_ sender: UIButton)
     {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    // The following segue passes the coins to the color themes view controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        // Prepare the variable thar will be sent forward
+        let playerCoins = tempCoins
+        
+        // Passing the data
+        guard let destination = segue.destination as? ColorThemesViewController else { return }
+        destination.userCoins = playerCoins
     }
     
     /*

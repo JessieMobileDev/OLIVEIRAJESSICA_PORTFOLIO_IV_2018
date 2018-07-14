@@ -13,8 +13,10 @@ class ColorThemesViewController: UIViewController
 {
     // Outlets
     @IBOutlet weak var userCoins_label: UILabel!
-    
     @IBOutlet var purchaseButtons: [UIButton]!
+    
+    // Variable to receive the passed data
+    var userCoins: Int?
     
     
     override func viewDidLoad()
@@ -27,6 +29,9 @@ class ColorThemesViewController: UIViewController
             button.clipsToBounds = true
             button.layer.cornerRadius = 5
         }
+        
+        // Assigning received coins value to a local variable and updating label
+        userCoins_label.text = "Your coins: \(userCoins!)"
     }
 
     override func didReceiveMemoryWarning()
