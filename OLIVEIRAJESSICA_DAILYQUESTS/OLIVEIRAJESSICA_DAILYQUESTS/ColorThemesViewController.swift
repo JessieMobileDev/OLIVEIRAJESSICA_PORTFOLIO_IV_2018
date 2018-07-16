@@ -32,6 +32,7 @@ class ColorThemesViewController: UIViewController
         
         // Assigning received coins value to a local variable and updating label
         userCoins_label.text = "Your coins: \(userCoins!)"
+        
     }
 
     override func didReceiveMemoryWarning()

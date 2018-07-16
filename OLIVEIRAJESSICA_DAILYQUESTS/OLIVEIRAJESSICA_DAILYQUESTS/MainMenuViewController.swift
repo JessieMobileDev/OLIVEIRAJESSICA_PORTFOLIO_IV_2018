@@ -109,7 +109,7 @@ class MainMenuViewController: UIViewController
     
     @IBAction func goToMyQuests(_ sender: UIButton)
     {
-        
+        performSegue(withIdentifier: "myQuestsGo", sender: self)
     }
     
     // Log off Button
