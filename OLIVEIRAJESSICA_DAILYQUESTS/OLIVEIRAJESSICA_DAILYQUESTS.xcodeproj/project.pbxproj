@@ -11,6 +11,10 @@
 		4C1C6D4A20F68543009B67B7 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C6D4920F68543009B67B7 /* MainMenuViewController.swift */; };
 		4C1C6D4C20F7E298009B67B7 /* MarketplaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C6D4B20F7E298009B67B7 /* MarketplaceViewController.swift */; };
 		4C1C6D4E20F7E2BC009B67B7 /* ColorThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C6D4D20F7E2BC009B67B7 /* ColorThemesViewController.swift */; };
+		4C1C6D5020FD05F3009B67B7 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C6D4F20FD05F3009B67B7 /* TasksTableViewCell.swift */; };
+		4C1C6D5220FD096D009B67B7 /* MyQuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C6D5120FD096D009B67B7 /* MyQuestsViewController.swift */; };
+		4C1C6D5420FECE80009B67B7 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C6D5320FECE80009B67B7 /* Task.swift */; };
+		4C1C6D5620FEE75E009B67B7 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C6D5520FEE75E009B67B7 /* NewTaskViewController.swift */; };
 		4CB18DF120F658C2001CE9AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CB18DF020F658C2001CE9AE /* GoogleService-Info.plist */; };
 		4CC0635620F5AA5D00B2E1BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0635520F5AA5D00B2E1BC /* AppDelegate.swift */; };
 		4CC0635820F5AA5D00B2E1BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0635720F5AA5D00B2E1BC /* ViewController.swift */; };
@@ -43,6 +47,10 @@
 		4C1C6D4920F68543009B67B7 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		4C1C6D4B20F7E298009B67B7 /* MarketplaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceViewController.swift; sourceTree = "<group>"; };
 		4C1C6D4D20F7E2BC009B67B7 /* ColorThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemesViewController.swift; sourceTree = "<group>"; };
+		4C1C6D4F20FD05F3009B67B7 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
+		4C1C6D5120FD096D009B67B7 /* MyQuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQuestsViewController.swift; sourceTree = "<group>"; };
+		4C1C6D5320FECE80009B67B7 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		4C1C6D5520FEE75E009B67B7 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 		4CB18DF020F658C2001CE9AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4CC0635220F5AA5D00B2E1BC /* OLIVEIRAJESSICA_DAILYQUESTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OLIVEIRAJESSICA_DAILYQUESTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC0635520F5AA5D00B2E1BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +138,10 @@
 				4C1C6D4920F68543009B67B7 /* MainMenuViewController.swift */,
 				4C1C6D4B20F7E298009B67B7 /* MarketplaceViewController.swift */,
 				4C1C6D4D20F7E2BC009B67B7 /* ColorThemesViewController.swift */,
+				4C1C6D5120FD096D009B67B7 /* MyQuestsViewController.swift */,
+				4C1C6D4F20FD05F3009B67B7 /* TasksTableViewCell.swift */,
+				4C1C6D5320FECE80009B67B7 /* Task.swift */,
+				4C1C6D5520FEE75E009B67B7 /* NewTaskViewController.swift */,
 				4CC0635920F5AA5D00B2E1BC /* Main.storyboard */,
 				4CC0635C20F5AA5F00B2E1BC /* Assets.xcassets */,
 				4CC0635E20F5AA5F00B2E1BC /* LaunchScreen.storyboard */,
@@ -338,11 +350,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1C6D4E20F7E2BC009B67B7 /* ColorThemesViewController.swift in Sources */,
+				4C1C6D5220FD096D009B67B7 /* MyQuestsViewController.swift in Sources */,
 				4C1C6D4C20F7E298009B67B7 /* MarketplaceViewController.swift in Sources */,
 				4C1C6D4A20F68543009B67B7 /* MainMenuViewController.swift in Sources */,
 				4CC0635820F5AA5D00B2E1BC /* ViewController.swift in Sources */,
 				4CC0635620F5AA5D00B2E1BC /* AppDelegate.swift in Sources */,
+				4C1C6D5620FEE75E009B67B7 /* NewTaskViewController.swift in Sources */,
 				4CC0638420F647AC00B2E1BC /* LogInViewController.swift in Sources */,
+				4C1C6D5420FECE80009B67B7 /* Task.swift in Sources */,
+				4C1C6D5020FD05F3009B67B7 /* TasksTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

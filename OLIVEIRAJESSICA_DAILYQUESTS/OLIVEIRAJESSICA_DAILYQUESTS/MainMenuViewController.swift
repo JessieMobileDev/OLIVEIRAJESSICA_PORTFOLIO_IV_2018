@@ -129,17 +129,33 @@ class MainMenuViewController: UIViewController
         self.navigationController?.pushViewController(loginViewController, animated: true)
         self.dismiss(animated: false, completion: nil)
     }
+    
 
+    
     // The following segue passes the coins to the marketplace view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        // Prepare the variable thar will be sent forward
-        let playerCoins = coinsCount
+        if segue.identifier == "myQuestsGo"
+        {
+            // Prepare the variable that will be sent forward
+            let playerUsername = tempUsername
+            
+            // Passing data
+            guard let destination = segue.destination as? MyQuestsViewController else { return }
+            destination.username = playerUsername
+        }
+        else if segue.identifier == "marketplaceGo"
+        {
+            // Prepare the variable that will be sent forward
+            let playerCoins = coinsCount
+            
+            // Passing the data
+            guard let destination = segue.destination as? MarketplaceViewController else { return }
+            destination.userCoins = playerCoins
+        }
         
-        // Passing the data
-        guard let destination = segue.destination as? MarketplaceViewController else { return }
-        destination.userCoins = playerCoins
     }
+    
     
     func retrieveUserData()
     {
