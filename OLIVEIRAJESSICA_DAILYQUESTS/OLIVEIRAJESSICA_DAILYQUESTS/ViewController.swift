@@ -65,6 +65,7 @@ class ViewController: UIViewController
                     self.reg_username_txtField.text = ""
                     self.reg_pw_txtField.text = ""
                     self.reg_email_txtField.text = ""
+                    self.msg.text = ""
                 }
             }
         }

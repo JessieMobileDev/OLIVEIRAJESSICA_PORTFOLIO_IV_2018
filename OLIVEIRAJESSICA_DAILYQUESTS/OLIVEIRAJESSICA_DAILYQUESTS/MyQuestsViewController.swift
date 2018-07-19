@@ -334,25 +334,28 @@ class MyQuestsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        // Show an alert asking if the user would like to complete the current quest
-        alert = UIAlertController(title: "Turn in quests", message: "Is this quest completed?", preferredStyle: UIAlertControllerStyle.alert)
-        
-        let yesButton = UIAlertAction(title: "Yes", style: .default) { (alertAction) in
-            let currentTaskId = self.tasksInProgress[indexPath.row].questId
-            self.completeSelectedTask(taskId: currentTaskId)
+        if buttonPressed == 0
+        {
+            // Show an alert asking if the user would like to complete the current quest
+            alert = UIAlertController(title: "Turn in quests", message: "Is this quest completed?", preferredStyle: UIAlertControllerStyle.alert)
             
-            // Updating user's current coins and experience based on completed quest
-            let currentTaskCoins = self.tasksInProgress[indexPath.row].coins
-            let currentTaskExp = self.tasksInProgress[indexPath.row].experience
-            self.updateCoinsAndExp(questCoin: currentTaskCoins, questExp: currentTaskExp)
+            let yesButton = UIAlertAction(title: "Yes", style: .default) { (alertAction) in
+                let currentTaskId = self.tasksInProgress[indexPath.row].questId
+                self.completeSelectedTask(taskId: currentTaskId)
+                
+                // Updating user's current coins and experience based on completed quest
+                let currentTaskCoins = self.tasksInProgress[indexPath.row].coins
+                let currentTaskExp = self.tasksInProgress[indexPath.row].experience
+                self.updateCoinsAndExp(questCoin: currentTaskCoins, questExp: currentTaskExp)
+            }
+            let noButton = UIAlertAction(title: "No", style: .cancel) { (alertAction) in
+            }
+            
+            alert.addAction(yesButton)
+            alert.addAction(noButton)
+            
+            present(alert, animated:true, completion: nil)
         }
-        let noButton = UIAlertAction(title: "No", style: .cancel) { (alertAction) in
-        }
-        
-        alert.addAction(yesButton)
-        alert.addAction(noButton)
-        
-        present(alert, animated:true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)

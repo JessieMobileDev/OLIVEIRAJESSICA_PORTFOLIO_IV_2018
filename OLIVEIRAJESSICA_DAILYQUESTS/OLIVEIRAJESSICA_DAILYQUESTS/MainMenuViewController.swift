@@ -205,7 +205,7 @@ class MainMenuViewController: UIViewController
                                 
                                 // Calculates how much experience you're at from the next level
                                 //let nextLevelPercentage = (self.remainingExp * 100)/self.nextLevelMaxExp
-                                let nextLevelPercentage = (Double(self.expCount) * 100.0)/self.nextLevelMaxExp
+                                let nextLevelPercentage = (self.remainingExp * 100.0)/self.nextLevelMaxExp
                                 
                                 // Round the float to 2 decimal spaces
                                 let nextPerc = String(format: "%.2f", nextLevelPercentage as CVarArg)
@@ -234,7 +234,7 @@ class MainMenuViewController: UIViewController
     func levelsBreakDown()
     {
         let baseLvl: Int = 1
-        var counter: Int = 1
+        var counter: Int = 0
         var hasFoundMatchingLevel: Bool = false
 
         // While user experience is not higher or equal to the formula outcome, keep adding 1 to the counter until it finds a match
@@ -253,12 +253,13 @@ class MainMenuViewController: UIViewController
                 counter += 1
                 
                 // Subtract the user's experience from the max experience from the matching level
-                self.remainingExp = self.currentMaxPerLevel - Double(self.expCount)
-                self.levelCount = counter
+                remainingExp = currentMaxPerLevel - Double(expCount)
+                levelCount = counter
                 
                 // Checks the next level's max experience
-                let tempCurrentMaxPerLevel = (Double(self.baseExp) * (Double(baseLvl + (counter + 1)) * self.exponent))
-                self.nextLevelMaxExp = tempCurrentMaxPerLevel
+                //let tempCurrentMaxPerLevel = (Double(self.baseExp) * (Double(baseLvl + (counter + 1)) * self.exponent))
+                //nextLevelMaxExp = tempCurrentMaxPerLevel
+                nextLevelMaxExp = Double(baseExp) * exponent
                 
                 // It found a matching level
                 hasFoundMatchingLevel = true
@@ -266,12 +267,13 @@ class MainMenuViewController: UIViewController
             else
             {
                 // Subtract the user's experience from the max experience from the matching level
-                //remainingExp = currentMaxPerLevel - Double(expCount)
+                remainingExp = currentMaxPerLevel - Double(expCount)
                 levelCount = counter
+                print("Level count: \(levelCount)")
                 
                 // Checks the next level's max experience
-                let tempCurrentMaxPerLevel = (Double(baseExp) * (Double(baseLvl + counter) * exponent))
-                nextLevelMaxExp = tempCurrentMaxPerLevel
+                //let tempCurrentMaxPerLevel = (Double(baseExp) * (Double(baseLvl + counter) * exponent))
+                nextLevelMaxExp = Double(baseExp) * exponent
                 
                 // It found a matching level
                 hasFoundMatchingLevel = true
