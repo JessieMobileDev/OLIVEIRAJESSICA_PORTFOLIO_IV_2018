@@ -205,7 +205,7 @@ class MainMenuViewController: UIViewController
                                 
                                 // Calculates how much experience you're at from the next level
                                 //let nextLevelPercentage = (self.remainingExp * 100)/self.nextLevelMaxExp
-                                let nextLevelPercentage = (self.remainingExp * 100.0)/self.nextLevelMaxExp
+                                let nextLevelPercentage = (100 - (self.remainingExp * 100.0)/self.nextLevelMaxExp)
                                 
                                 // Round the float to 2 decimal spaces
                                 let nextPerc = String(format: "%.2f", nextLevelPercentage as CVarArg)
@@ -269,11 +269,16 @@ class MainMenuViewController: UIViewController
                 // Subtract the user's experience from the max experience from the matching level
                 remainingExp = currentMaxPerLevel - Double(expCount)
                 levelCount = counter
-                print("Level count: \(levelCount)")
+                
+                
+                
+                //print("Level count: \(levelCount)")
                 
                 // Checks the next level's max experience
                 //let tempCurrentMaxPerLevel = (Double(baseExp) * (Double(baseLvl + counter) * exponent))
                 nextLevelMaxExp = Double(baseExp) * exponent
+                
+                //print("remaining exp: \(remainingExp) -- nextLevelMaxExp: \(nextLevelMaxExp) -- level count: \(levelCount) -- Percentage for next level: \((remainingExp * 100.0)/nextLevelMaxExp) -- Percentage in reverse: \((100 - (remainingExp * 100.0)/nextLevelMaxExp))")
                 
                 // It found a matching level
                 hasFoundMatchingLevel = true
