@@ -101,6 +101,12 @@ class MainMenuViewController: UIViewController
 //        }
         
     }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        // When the "quests screen" is dimissed, the user info should be updated
+        retrieveUserData()
+    }
 
     override func didReceiveMemoryWarning()
     {
@@ -139,10 +145,14 @@ class MainMenuViewController: UIViewController
         {
             // Prepare the variable that will be sent forward
             let playerUsername = tempUsername
+            let userCoins = coinsCount
+            let userExp = expCount
             
             // Passing data
             guard let destination = segue.destination as? MyQuestsViewController else { return }
             destination.username = playerUsername
+            destination.userCoins = userCoins
+            destination.userExp = userExp
         }
         else if segue.identifier == "marketplaceGo"
         {
@@ -170,7 +180,7 @@ class MainMenuViewController: UIViewController
         {
             // Making a request
             Alamofire.request(api, method: .post, parameters: parameters).responseJSON
-                { (response) in
+            { (response) in
                     
                     print(response)
                     
@@ -194,7 +204,8 @@ class MainMenuViewController: UIViewController
                                 self.levelsBreakDown()
                                 
                                 // Calculates how much experience you're at from the next level
-                                let nextLevelPercentage = (self.remainingExp * 100)/self.nextLevelMaxExp
+                                //let nextLevelPercentage = (self.remainingExp * 100)/self.nextLevelMaxExp
+                                let nextLevelPercentage = (Double(self.expCount) * 100.0)/self.nextLevelMaxExp
                                 
                                 // Round the float to 2 decimal spaces
                                 let nextPerc = String(format: "%.2f", nextLevelPercentage as CVarArg)
@@ -223,7 +234,7 @@ class MainMenuViewController: UIViewController
     func levelsBreakDown()
     {
         let baseLvl: Int = 1
-        var counter: Int = 0
+        var counter: Int = 1
         var hasFoundMatchingLevel: Bool = false
 
         // While user experience is not higher or equal to the formula outcome, keep adding 1 to the counter until it finds a match
@@ -247,7 +258,7 @@ class MainMenuViewController: UIViewController
                 
                 // Checks the next level's max experience
                 let tempCurrentMaxPerLevel = (Double(self.baseExp) * (Double(baseLvl + (counter + 1)) * self.exponent))
-                self.nextLevelMaxExp = tempCurrentMaxPerLevel - self.remainingExp
+                self.nextLevelMaxExp = tempCurrentMaxPerLevel
                 
                 // It found a matching level
                 hasFoundMatchingLevel = true
@@ -255,29 +266,16 @@ class MainMenuViewController: UIViewController
             else
             {
                 // Subtract the user's experience from the max experience from the matching level
-                remainingExp = currentMaxPerLevel - Double(expCount)
+                //remainingExp = currentMaxPerLevel - Double(expCount)
                 levelCount = counter
                 
                 // Checks the next level's max experience
-                let tempCurrentMaxPerLevel = (Double(baseExp) * (Double(baseLvl + (counter + 1)) * exponent))
-                nextLevelMaxExp = tempCurrentMaxPerLevel - remainingExp
+                let tempCurrentMaxPerLevel = (Double(baseExp) * (Double(baseLvl + counter) * exponent))
+                nextLevelMaxExp = tempCurrentMaxPerLevel
                 
                 // It found a matching level
                 hasFoundMatchingLevel = true
             }
         }
-        
-        
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
