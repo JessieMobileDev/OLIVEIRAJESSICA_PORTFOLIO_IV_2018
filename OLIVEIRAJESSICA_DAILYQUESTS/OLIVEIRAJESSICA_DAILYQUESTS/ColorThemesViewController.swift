@@ -17,7 +17,7 @@ class ColorThemesViewController: UIViewController
     
     // Variable to receive the passed data
     var userCoins: Int?
-    
+    var colorThemes: [(red: Int, green: Int, blue: Int)] = [(104, 128, 144), (249, 234, 229), (85, 133, 131), (160, 199, 178), (48, 18, 34), (246, 210, 111), (55, 91, 121), (145, 221, 232), (211, 61, 75), (244, 237, 193), (142, 192, 182), (221, 235, 165)]
     
     override func viewDidLoad()
     {
@@ -32,6 +32,10 @@ class ColorThemesViewController: UIViewController
         
         // Assigning received coins value to a local variable and updating label
         userCoins_label.text = "Your coins: \(userCoins!)"
+        
+        //let tempColorScheme =
+        
+        print()
         
     }
 

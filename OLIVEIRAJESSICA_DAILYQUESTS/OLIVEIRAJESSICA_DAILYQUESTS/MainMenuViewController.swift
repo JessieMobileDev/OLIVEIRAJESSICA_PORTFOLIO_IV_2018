@@ -19,6 +19,7 @@ class MainMenuViewController: UIViewController
     @IBOutlet weak var badges_label: UILabel!
     @IBOutlet weak var achievements_label: UILabel!
     @IBOutlet var mainMenuButtons: [UIView]!
+    @IBOutlet weak var userAvatar: UIImageView!
     
     // APIs urls
     let readExperience = "http://dailyquests.club/JessyServer/v1/getexp.php"
@@ -26,6 +27,7 @@ class MainMenuViewController: UIViewController
     let readAchievements = "http://dailyquests.club/JessyServer/v1/getachievements.php"
     let readBadges = "http://dailyquests.club/JessyServer/v1/getbadges.php"
     var readAPIs: [String] = ["http://dailyquests.club/JessyServer/v1/getexp.php", "http://dailyquests.club/JessyServer/v1/getcoins.php", "http://dailyquests.club/JessyServer/v1/getachievements.php", "http://dailyquests.club/JessyServer/v1/getbadges.php"]
+    let readCurrentAvatar = "http://dailyquests.club/JessyServer/v1/getcurrentavatar.php"
     
     // Variables
     var tempUsername: String = ""
@@ -77,6 +79,8 @@ class MainMenuViewController: UIViewController
         // Getting experience, coins, achievements and badges count from database
         retrieveUserData()
         
+        // Updates current avatar
+        getCurrentAvatar()
         
         
         
@@ -106,6 +110,9 @@ class MainMenuViewController: UIViewController
     {
         // When the "quests screen" is dimissed, the user info should be updated
         retrieveUserData()
+        
+        // Updates current avatar
+        getCurrentAvatar()
     }
 
     override func didReceiveMemoryWarning()
@@ -163,6 +170,20 @@ class MainMenuViewController: UIViewController
             guard let destination = segue.destination as? MarketplaceViewController else { return }
             destination.userCoins = playerCoins
         }
+        else if segue.identifier == "followListGo"
+        {
+            // Prepare the variable that will be sent forward
+            let playerUsername = tempUsername
+            
+            // Passing data
+            guard let destination = segue.destination as? FollowListViewController else { return }
+            destination.username = playerUsername
+        }
+//        else if segue.identifier == "changeColorThemeGo"
+//        {
+//            // Do segue
+//            guard let destination = segue.destination as? ChangeColorThemeViewController else { return }
+//        }
         
     }
     
@@ -282,6 +303,34 @@ class MainMenuViewController: UIViewController
                 
                 // It found a matching level
                 hasFoundMatchingLevel = true
+            }
+        }
+    }
+    
+    func getCurrentAvatar()
+    {
+        // Setting the parameter to be sent
+        let parameters: Parameters = ["username":tempUsername]
+        
+        // Making a request
+        Alamofire.request(readCurrentAvatar, method: .post, parameters: parameters).responseJSON
+        { (response) in
+            
+            // Getting the json value from the server
+            if let result = response.result.value
+            {
+                let jsonData = result as! NSDictionary
+                
+                // Getting Data from response
+                let userData = jsonData.value(forKey: "Data") as! [NSDictionary]
+                
+                // Getting second-level data
+                guard let userCurrentAvatar = userData[0]["currentAvatar"] as? String else { return }
+                
+                let tempAvatar = "A\(userCurrentAvatar)"
+                
+                // Set the current avatar to the image view
+                self.userAvatar.image = UIImage(named: tempAvatar)
             }
         }
     }

@@ -36,11 +36,14 @@ class MyQuestsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool)
     {
         retrieveActiveQuests()
+        activeAndDoneButtons[0].backgroundColor = UIColor(displayP3Red: 255, green: 255, blue: 255, alpha: 0.5)
     }
 
     override func didReceiveMemoryWarning()
@@ -144,10 +147,19 @@ class MyQuestsViewController: UIViewController, UITableViewDelegate, UITableView
         case 0:
             buttonPressed = 0
             tasksTableView.reloadData()
+            
+            activeAndDoneButtons[0].backgroundColor = UIColor(displayP3Red: 255, green: 255, blue: 255, alpha: 0.5)
+            activeAndDoneButtons[1].backgroundColor = nil
+            
+            
+            
         case 1:
             buttonPressed = 1
             retrieveDoneQuests()
             tasksTableView.reloadData()
+            
+            activeAndDoneButtons[1].backgroundColor = UIColor(displayP3Red: 255, green: 255, blue: 255, alpha: 0.5)
+            activeAndDoneButtons[0].backgroundColor = nil
         default:
             print("No tag found")
         }
@@ -308,7 +320,9 @@ class MyQuestsViewController: UIViewController, UITableViewDelegate, UITableView
                         // If there is no error, display a message about updating the exp and coins
                         if (!(jsonData.value(forKey: "error") as! Bool))
                         {
-                            self.simpleAlert(title: "Rewards", message: "Your coins and experience were updated!")
+                            //self.simpleAlert(title: "Rewards", message: "Your coins and experience were updated!")
+                            
+                            
                         }
                     }
                 }

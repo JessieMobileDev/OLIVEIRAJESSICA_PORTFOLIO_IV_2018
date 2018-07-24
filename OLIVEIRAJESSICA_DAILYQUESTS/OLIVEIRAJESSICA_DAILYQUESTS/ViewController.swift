@@ -19,10 +19,9 @@ class ViewController: UIViewController
     
     // APIs urls
     let register_url = "http://dailyquests.club/JessyServer/v1/register.php"
-    //let userInfo = ""
     
     // Variables
-    var userData: (username: String, email: String, currentAvatar: Int, exp: Int, coins: Int, badges: Int, achievements: Int) = ("", "", 0, 0, 0, 0, 0)
+    let defaultValues = UserDefaults.standard
     
     override func viewDidLoad()
     {
@@ -54,19 +53,28 @@ class ViewController: UIViewController
                 
                 // Displaying the message in label for testing purposes
                 let returnMessage = jsonData.value(forKey: "message") as! String?
+                let userId = jsonData.value(forKey: "user") as! Int?
                 self.msg.text = returnMessage
+                print(returnMessage!)
                 
                 // If the user was successfully created, then move to the Main Menu Screen
                 if returnMessage == "User created successfully"
                 {
-                    self.performSegue(withIdentifier: "registerGo", sender: self)
+                    // Save new account info to user defaults
+                    self.defaultValues.set(userId, forKey: "userId")
+                    self.defaultValues.set(self.reg_username_txtField.text!, forKey: "username")
+                    self.defaultValues.set(self.reg_email_txtField.text!, forKey: "useremail")
                     
-                    // Clears whatever is still written in the text fields
-                    self.reg_username_txtField.text = ""
-                    self.reg_pw_txtField.text = ""
-                    self.reg_email_txtField.text = ""
-                    self.msg.text = ""
+                    // Perform segue to the main menu screen
+                    self.performSegue(withIdentifier: "registerGo", sender: self)
                 }
+                
+                // Clears whatever is still written in the text fields
+                self.reg_username_txtField.text = ""
+                self.reg_pw_txtField.text = ""
+                self.reg_email_txtField.text = ""
+                self.msg.text = ""
+                
             }
         }
         
