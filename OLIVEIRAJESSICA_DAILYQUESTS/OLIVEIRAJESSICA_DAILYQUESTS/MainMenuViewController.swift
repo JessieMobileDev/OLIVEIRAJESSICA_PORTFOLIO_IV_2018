@@ -165,10 +165,12 @@ class MainMenuViewController: UIViewController
         {
             // Prepare the variable that will be sent forward
             let playerCoins = coinsCount
+            let playerUsername = tempUsername
             
             // Passing the data
             guard let destination = segue.destination as? MarketplaceViewController else { return }
             destination.userCoins = playerCoins
+            destination.username = playerUsername
         }
         else if segue.identifier == "followListGo"
         {

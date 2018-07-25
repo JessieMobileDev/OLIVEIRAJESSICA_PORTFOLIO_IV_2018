@@ -15,6 +15,7 @@ class MarketplaceViewController: UIViewController
     
     // Variable to receive coins value through segue
     var userCoins: Int?
+    var username: String?
     var tempCoins: Int = 0
     
     
@@ -30,7 +31,7 @@ class MarketplaceViewController: UIViewController
         }
         
         // Assigning received coins value to a local variable
-        tempCoins = userCoins!
+        //tempCoins = userCoins!
         print(tempCoins)
     }
 
@@ -48,10 +49,12 @@ class MarketplaceViewController: UIViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         // Prepare the variable thar will be sent forward
-        let playerCoins = tempCoins
+        let playerCoins = userCoins!
+        let playerUsername = username!
         
         // Passing the data
         guard let destination = segue.destination as? ColorThemesViewController else { return }
         destination.userCoins = playerCoins
+        destination.username = playerUsername
     }
 }
