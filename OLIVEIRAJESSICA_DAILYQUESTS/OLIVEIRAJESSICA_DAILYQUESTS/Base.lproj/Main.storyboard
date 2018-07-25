@@ -435,46 +435,46 @@
                                 <rect key="frame" x="336.5" y="145.5" width="18.5" height="18.5"/>
                                 <state key="normal" backgroundImage="selectionBoxEmpty"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhS-uW-WII">
+                            <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhS-uW-WII">
                                 <rect key="frame" x="336.5" y="213" width="18.5" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dhS-uW-WII" secondAttribute="height" multiplier="1:1" id="z8P-lC-U9e"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="notObtainedYet"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ub3-2o-ZeC">
+                            <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ub3-2o-ZeC">
                                 <rect key="frame" x="336.5" y="243" width="18.5" height="18.5"/>
                                 <state key="normal" backgroundImage="selectionBoxEmpty"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9S-Jl-dxi">
+                            <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9S-Jl-dxi">
                                 <rect key="frame" x="336.5" y="306" width="18.5" height="19"/>
                                 <state key="normal" backgroundImage="notObtainedYet"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ry4-H8-da0">
+                            <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ry4-H8-da0">
                                 <rect key="frame" x="336" y="336.5" width="18.5" height="18.5"/>
                                 <state key="normal" backgroundImage="selectionBoxEmpty"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpR-st-sSe">
+                            <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpR-st-sSe">
                                 <rect key="frame" x="336.5" y="400" width="18.5" height="19"/>
                                 <state key="normal" backgroundImage="notObtainedYet"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVs-vf-8A4">
+                            <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVs-vf-8A4">
                                 <rect key="frame" x="336.5" y="430.5" width="18.5" height="18.5"/>
                                 <state key="normal" backgroundImage="selectionBoxEmpty"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fe1-LQ-Hfd">
+                            <button opaque="NO" tag="4" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fe1-LQ-Hfd">
                                 <rect key="frame" x="336" y="494" width="18.5" height="19"/>
                                 <state key="normal" backgroundImage="notObtainedYet"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSl-3O-JVU">
+                            <button opaque="NO" tag="4" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSl-3O-JVU">
                                 <rect key="frame" x="336" y="524.5" width="18.5" height="18.5"/>
                                 <state key="normal" backgroundImage="selectionBoxEmpty"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffE-I7-BpZ">
+                            <button opaque="NO" tag="5" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffE-I7-BpZ">
                                 <rect key="frame" x="336" y="588" width="18.5" height="19"/>
                                 <state key="normal" backgroundImage="notObtainedYet"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQY-Uf-ouA">
+                            <button opaque="NO" tag="5" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQY-Uf-ouA">
                                 <rect key="frame" x="336" y="618.5" width="18.5" height="18.5"/>
                                 <state key="normal" backgroundImage="selectionBoxEmpty"/>
                             </button>
@@ -562,6 +562,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VY5-jg-i5p"/>
                     </view>
+                    <connections>
+                        <outletCollection property="availableButtons" destination="b2t-aT-oLe" collectionClass="NSMutableArray" id="cPg-MX-bo7"/>
+                        <outletCollection property="availableButtons" destination="dhS-uW-WII" collectionClass="NSMutableArray" id="s2d-eB-agf"/>
+                        <outletCollection property="availableButtons" destination="K9S-Jl-dxi" collectionClass="NSMutableArray" id="9H9-zJ-lmB"/>
+                        <outletCollection property="availableButtons" destination="HpR-st-sSe" collectionClass="NSMutableArray" id="Usr-Sm-43h"/>
+                        <outletCollection property="availableButtons" destination="fe1-LQ-Hfd" collectionClass="NSMutableArray" id="cbz-Za-BTO"/>
+                        <outletCollection property="availableButtons" destination="ffE-I7-BpZ" collectionClass="NSMutableArray" id="zF4-eu-3Yj"/>
+                        <outletCollection property="selectedButtons" destination="ed3-bZ-HT5" collectionClass="NSMutableArray" id="xEV-hS-xe6"/>
+                        <outletCollection property="selectedButtons" destination="ub3-2o-ZeC" collectionClass="NSMutableArray" id="ruv-rF-iAh"/>
+                        <outletCollection property="selectedButtons" destination="ry4-H8-da0" collectionClass="NSMutableArray" id="FsW-XP-uKp"/>
+                        <outletCollection property="selectedButtons" destination="jVs-vf-8A4" collectionClass="NSMutableArray" id="dFM-bg-uWL"/>
+                        <outletCollection property="selectedButtons" destination="NSl-3O-JVU" collectionClass="NSMutableArray" id="XEd-Zt-Irq"/>
+                        <outletCollection property="selectedButtons" destination="XQY-Uf-ouA" collectionClass="NSMutableArray" id="kn1-FR-bvZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMP-t0-DES" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

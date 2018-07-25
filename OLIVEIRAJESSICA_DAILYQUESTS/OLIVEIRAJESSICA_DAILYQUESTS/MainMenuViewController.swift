@@ -181,12 +181,15 @@ class MainMenuViewController: UIViewController
             guard let destination = segue.destination as? FollowListViewController else { return }
             destination.username = playerUsername
         }
-//        else if segue.identifier == "changeColorThemeGo"
-//        {
-//            // Do segue
-//            guard let destination = segue.destination as? ChangeColorThemeViewController else { return }
-//        }
-        
+        else if segue.identifier == "changeColorThemeGo"
+        {
+            // Prepare the variable that will be sent forward
+            let playerUsername = tempUsername
+            
+            // Passing data
+            guard let destination = segue.destination as? ChangeColorThemeViewController else { return }
+            destination.username = playerUsername
+        }
     }
     
     
