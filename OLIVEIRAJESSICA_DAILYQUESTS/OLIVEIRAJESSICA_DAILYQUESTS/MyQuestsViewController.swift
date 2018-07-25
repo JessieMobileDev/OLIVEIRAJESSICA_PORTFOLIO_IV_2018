@@ -17,6 +17,9 @@ class MyQuestsViewController: UIViewController, UITableViewDelegate, UITableView
     // Buttons active and done
     @IBOutlet var activeAndDoneButtons: [UIButton]!
     
+    // Outlets
+    @IBOutlet var questsViews: [UIView]!
+    
     // API urls
     let activeTasks = "http://dailyquests.club/JessyServer/v1/inprogress.php"
     let doneTasks = "http://dailyquests.club/JessyServer/v1/completed.php"
@@ -32,12 +35,16 @@ class MyQuestsViewController: UIViewController, UITableViewDelegate, UITableView
     var buttonPressed: Int = 0
     var alert: UIAlertController!
     var okAction: UIAlertAction!
+    var colorDefaults = UserDefaults.standard
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        
+        for view in questsViews
+        {
+            view.backgroundColor = colorDefaults.colorForKey(key: "currentColorTheme")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool)

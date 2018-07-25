@@ -29,6 +29,10 @@
 		4CF121B021077F7E00D3EF87 /* FollowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF121AF21077F7E00D3EF87 /* FollowListViewController.swift */; };
 		4CF121B22107810100D3EF87 /* FollowListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF121B12107810100D3EF87 /* FollowListTableViewCell.swift */; };
 		4CF121B42107842900D3EF87 /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF121B32107842900D3EF87 /* Follow.swift */; };
+		4CF121B62109089000D3EF87 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF121B52109089000D3EF87 /* UserDefaultsExtension.swift */; };
+		4CF121B821091D8800D3EF87 /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF121B721091D8800D3EF87 /* AchievementsViewController.swift */; };
+		4CF121BA2109330A00D3EF87 /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF121B92109330A00D3EF87 /* BadgesViewController.swift */; };
+		4CF121BC2109348400D3EF87 /* BadgesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF121BB2109348400D3EF87 /* BadgesCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,10 @@
 		4CF121AF21077F7E00D3EF87 /* FollowListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowListViewController.swift; sourceTree = "<group>"; };
 		4CF121B12107810100D3EF87 /* FollowListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowListTableViewCell.swift; sourceTree = "<group>"; };
 		4CF121B32107842900D3EF87 /* Follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
+		4CF121B52109089000D3EF87 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		4CF121B721091D8800D3EF87 /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
+		4CF121B92109330A00D3EF87 /* BadgesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
+		4CF121BB2109348400D3EF87 /* BadgesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE78CA6A4A150794F52BACB4 /* Pods_OLIVEIRAJESSICA_DAILYQUESTS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OLIVEIRAJESSICA_DAILYQUESTS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB52D17EDB23E755D328D02 /* Pods-OLIVEIRAJESSICA_DAILYQUESTS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLIVEIRAJESSICA_DAILYQUESTS.release.xcconfig"; path = "Pods/Target Support Files/Pods-OLIVEIRAJESSICA_DAILYQUESTS/Pods-OLIVEIRAJESSICA_DAILYQUESTS.release.xcconfig"; sourceTree = "<group>"; };
 		D773147AB57919D73C77AD7F /* Pods-OLIVEIRAJESSICA_DAILYQUESTS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLIVEIRAJESSICA_DAILYQUESTS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OLIVEIRAJESSICA_DAILYQUESTS/Pods-OLIVEIRAJESSICA_DAILYQUESTS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +165,10 @@
 				4CF121AF21077F7E00D3EF87 /* FollowListViewController.swift */,
 				4CF121B12107810100D3EF87 /* FollowListTableViewCell.swift */,
 				4CF121B32107842900D3EF87 /* Follow.swift */,
+				4CF121B52109089000D3EF87 /* UserDefaultsExtension.swift */,
+				4CF121B721091D8800D3EF87 /* AchievementsViewController.swift */,
+				4CF121B92109330A00D3EF87 /* BadgesViewController.swift */,
+				4CF121BB2109348400D3EF87 /* BadgesCollectionViewCell.swift */,
 				4CC0635920F5AA5D00B2E1BC /* Main.storyboard */,
 				4CC0635C20F5AA5F00B2E1BC /* Assets.xcassets */,
 				4CC0635E20F5AA5F00B2E1BC /* LaunchScreen.storyboard */,
@@ -366,6 +378,8 @@
 			files = (
 				4CF121B42107842900D3EF87 /* Follow.swift in Sources */,
 				4C1C6D4E20F7E2BC009B67B7 /* ColorThemesViewController.swift in Sources */,
+				4CF121B821091D8800D3EF87 /* AchievementsViewController.swift in Sources */,
+				4CF121BC2109348400D3EF87 /* BadgesCollectionViewCell.swift in Sources */,
 				4C1C6D5220FD096D009B67B7 /* MyQuestsViewController.swift in Sources */,
 				4CF121B22107810100D3EF87 /* FollowListTableViewCell.swift in Sources */,
 				4C1C6D4C20F7E298009B67B7 /* MarketplaceViewController.swift in Sources */,
@@ -373,7 +387,9 @@
 				4CC0635820F5AA5D00B2E1BC /* ViewController.swift in Sources */,
 				4CC0635620F5AA5D00B2E1BC /* AppDelegate.swift in Sources */,
 				4CF121AC20FFAE1D00D3EF87 /* TaskDone.swift in Sources */,
+				4CF121BA2109330A00D3EF87 /* BadgesViewController.swift in Sources */,
 				4C1C6D5620FEE75E009B67B7 /* NewTaskViewController.swift in Sources */,
+				4CF121B62109089000D3EF87 /* UserDefaultsExtension.swift in Sources */,
 				4CC0638420F647AC00B2E1BC /* LogInViewController.swift in Sources */,
 				4C1C6D5420FECE80009B67B7 /* Task.swift in Sources */,
 				4CF121AE210184DD00D3EF87 /* ChangeColorThemeViewController.swift in Sources */,

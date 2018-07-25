@@ -21,6 +21,9 @@ class MainMenuViewController: UIViewController
     @IBOutlet var mainMenuButtons: [UIView]!
     @IBOutlet weak var userAvatar: UIImageView!
     
+    // UIView outlets that will have thier color changed
+    @IBOutlet var mainMenuUIViews: [UIView]!
+    
     // APIs urls
     let readExperience = "http://dailyquests.club/JessyServer/v1/getexp.php"
     let readCoins = "http://dailyquests.club/JessyServer/v1/getcoins.php"
@@ -28,6 +31,7 @@ class MainMenuViewController: UIViewController
     let readBadges = "http://dailyquests.club/JessyServer/v1/getbadges.php"
     var readAPIs: [String] = ["http://dailyquests.club/JessyServer/v1/getexp.php", "http://dailyquests.club/JessyServer/v1/getcoins.php", "http://dailyquests.club/JessyServer/v1/getachievements.php", "http://dailyquests.club/JessyServer/v1/getbadges.php"]
     let readCurrentAvatar = "http://dailyquests.club/JessyServer/v1/getcurrentavatar.php"
+    let getCurrentTheme = "http://dailyquests.club/JessyServer/v1/getcurrenttheme.php"
     
     // Variables
     var tempUsername: String = ""
@@ -37,6 +41,9 @@ class MainMenuViewController: UIViewController
     var badgesCount: Int = 0
     var achieveCount: Int = 0
     var userStatus: [Int] = []
+    var colorDefaults = UserDefaults.standard
+    var colorThemes: [(red: Int, green: Int, blue: Int)] = [(104, 128, 144), (85, 133, 131), (48, 18, 34), (55, 91, 121), (211, 61, 75), (142, 192, 182)]
+    var selectedBoxTheme: Int = 0
     
     var exponent: Double = 1.5
     var baseExp: Int = 1000
@@ -82,28 +89,8 @@ class MainMenuViewController: UIViewController
         // Updates current avatar
         getCurrentAvatar()
         
-        
-        
-//        if let userName = defaultValues.string(forKey: "username")
-//        {
-//            // Updating username label
-//            username_label.text = userName
-//        }
-//        else
-//        {
-//            switchToLogInScreen()
-//        }
-//
-//        if let userEmail = defaultValues.string(forKey: "useremail")
-//        {
-//            // Updating email label
-//            email_label.text = userEmail
-//        }
-//        else
-//        {
-//            switchToLogInScreen()
-//        }
-        
+        // Update UIView colors using color defaults
+        updateUIViewColors()
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -113,6 +100,9 @@ class MainMenuViewController: UIViewController
         
         // Updates current avatar
         getCurrentAvatar()
+        
+        // Update UIView colors using color defaults
+        updateUIViewColors()
     }
 
     override func didReceiveMemoryWarning()
@@ -188,6 +178,16 @@ class MainMenuViewController: UIViewController
             
             // Passing data
             guard let destination = segue.destination as? ChangeColorThemeViewController else { return }
+            destination.username = playerUsername
+            destination.selectedBoxTheme = selectedBoxTheme
+        }
+        else if segue.identifier == "achievementsGo"
+        {
+            // Prepare the variable that will be sent forward
+            let playerUsername = tempUsername
+            
+            // Passing data
+            guard let destination = segue.destination as? AchievementsViewController else { return }
             destination.username = playerUsername
         }
     }
@@ -337,6 +337,43 @@ class MainMenuViewController: UIViewController
                 // Set the current avatar to the image view
                 self.userAvatar.image = UIImage(named: tempAvatar)
             }
+        }
+    }
+    
+    func updateUIViewColors()
+    {
+        // Set up the parameters that will be sent to the database
+        let parameters: Parameters = ["username":tempUsername]
+        
+        // Making the request
+        Alamofire.request(getCurrentTheme, method: .post, parameters: parameters).responseJSON
+            { (response) in
+                
+                // Getting the json value from the server
+                if let result = response.result.value
+                {
+                    // Converting it as NSDictionary
+                    let jsonData = result as! NSDictionary
+                    
+                    // Getting Data from response
+                    let userData = jsonData.value(forKey: "Data") as! [NSDictionary]
+                    
+                    let currentUserTheme = userData[0].value(forKey: "currentTheme") as! Int
+                    self.selectedBoxTheme = currentUserTheme
+                    
+                    // Save the current theme to the userdefaults so it can be used throughout the screens
+                    let tempRed = self.colorThemes[currentUserTheme-1].red
+                    let tempGreen = self.colorThemes[currentUserTheme-1].green
+                    let tempBlue = self.colorThemes[currentUserTheme-1].blue
+                    
+                    self.colorDefaults.setColor(color: UIColor(displayP3Red: CGFloat(Double(tempRed)/255.0), green: CGFloat(Double(tempGreen))/255.0, blue: CGFloat(Double(tempBlue))/255.0, alpha: 1.0), forKey: "currentColorTheme")
+                    
+                    // Update the UIViews from the current screen
+                    for view in self.mainMenuUIViews
+                    {
+                        view.backgroundColor = self.colorDefaults.colorForKey(key: "currentColorTheme")
+                    }
+                }
         }
     }
 }

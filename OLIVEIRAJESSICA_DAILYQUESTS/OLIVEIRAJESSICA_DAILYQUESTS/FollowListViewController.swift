@@ -16,14 +16,18 @@ class FollowListViewController: UIViewController, UITableViewDelegate, UITableVi
     var followApi: String = ""
     var alert: UIAlertController!
     var okAction: UIAlertAction!
+    var colorDefaults = UserDefaults.standard
     
     // Outlets
     @IBOutlet weak var followTableView: UITableView!
-    
+    @IBOutlet weak var topMenuBarView: UIView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        // Change the views color according to what is saved in the user defaults
+        topMenuBarView.backgroundColor = colorDefaults.colorForKey(key: "currentColorTheme")
     }
 
     override func didReceiveMemoryWarning()

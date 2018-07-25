@@ -12,12 +12,15 @@ class MarketplaceViewController: UIViewController
 {
     // Outlets
     @IBOutlet var marketButtons: [UIView]!
+    @IBOutlet var marketUIViews: [UIView]!
     
     // Variable to receive coins value through segue
     var userCoins: Int?
     var username: String?
     var tempCoins: Int = 0
     
+    // Variables
+    var colorDefaults = UserDefaults.standard
     
     override func viewDidLoad()
     {
@@ -30,9 +33,11 @@ class MarketplaceViewController: UIViewController
             view.layer.cornerRadius = 5
         }
         
-        // Assigning received coins value to a local variable
-        //tempCoins = userCoins!
-        print(tempCoins)
+        // Set the UIViews to the saved color theme from user defaults
+        for view in marketUIViews
+        {
+            view.backgroundColor = colorDefaults.colorForKey(key: "currentColorTheme")
+        }
     }
 
     override func didReceiveMemoryWarning()

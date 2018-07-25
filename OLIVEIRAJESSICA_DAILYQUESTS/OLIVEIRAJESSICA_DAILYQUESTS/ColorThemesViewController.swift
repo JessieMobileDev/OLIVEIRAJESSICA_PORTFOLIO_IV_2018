@@ -14,21 +14,25 @@ class ColorThemesViewController: UIViewController
     // Outlets
     @IBOutlet weak var userCoins_label: UILabel!
     @IBOutlet var purchaseButtons: [UIButton]!
+    @IBOutlet weak var topBarMenuView: UIView!
     
     // Variables
     var userCoins: Int?
     var username: String?
     var userThemes: [Int] = []
-    var colorThemes: [(red: Int, green: Int, blue: Int)] = [(104, 128, 144), (249, 234, 229), (85, 133, 131), (160, 199, 178), (48, 18, 34), (246, 210, 111), (55, 91, 121), (145, 221, 232), (211, 61, 75), (244, 237, 193), (142, 192, 182), (221, 235, 165)]
     let getAllUserThemes: String = "http://dailyquests.club/JessyServer/v1/getthemes.php"
     let coinsUpdate: String = "http://dailyquests.club/JessyServer/v1/coins_update.php"
     var addTheme: String = ""
     var price: Int = 10000
     var btnIndex: Int = 0
+    var colorDefaults = UserDefaults.standard
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        // Set the top bar menu view to the saved color from user defaults
+        topBarMenuView.backgroundColor = colorDefaults.colorForKey(key: "currentColorTheme")
         
         // Rounding purchase buttons' edges
         for button in purchaseButtons
@@ -85,7 +89,7 @@ class ColorThemesViewController: UIViewController
     
     func addColorThemeToUserProfile(api: String, themePrice: Int, buttonIndex: Int)
     {
-        // Set up the parameters that will be sent tot he database
+        // Set up the parameters that will be sent to the database
         let parameters: Parameters = ["username":username!]
         
         // Making a request

@@ -14,6 +14,9 @@ class NewTaskViewController: UIViewController
     // Outlets
     @IBOutlet weak var taskTitle: UITextField!
     @IBOutlet weak var taskDescription: UITextField!
+    @IBOutlet weak var topBarView: UIView!
+    @IBOutlet weak var saveBtn: UIButton!
+    
     
     // Variables
     var saveQuest = "http://dailyquests.club/JessyServer/v1/createtask.php"
@@ -23,11 +26,15 @@ class NewTaskViewController: UIViewController
     var tempCoins = 0
     var tempExp = 0
     var tempDifficulty = -1
+    var colorDefaults = UserDefaults.standard
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        
+        // Change the color of the views according to the saved color in user defaults
+        topBarView.backgroundColor = colorDefaults.colorForKey(key: "currentColorTheme")
+        saveBtn.backgroundColor = colorDefaults.colorForKey(key: "currentColorTheme")
     }
 
     override func didReceiveMemoryWarning()
