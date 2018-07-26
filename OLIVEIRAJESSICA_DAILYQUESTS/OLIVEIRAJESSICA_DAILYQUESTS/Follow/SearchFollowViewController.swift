@@ -18,11 +18,15 @@ class SearchFollowViewController: UIViewController, UITableViewDelegate, UITable
     
     // Variables
     let searchFollowApi = "http://dailyquests.club/JessyServer/v1/listusers.php"
+    let followUserApi = "http://dailyquests.club/JessyServer/v1/follow.php"
     var allUsers: [Follow] = []
     let colorDefaults = UserDefaults.standard
     var isSearching = false
     var filteredData: [Follow] = []
-
+    var username: String?
+    var alert: UIAlertController!
+    var okAction: UIAlertAction!
+    
 
 
     
@@ -52,12 +56,20 @@ class SearchFollowViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+        let temp = [filteredData, allUsers]
+        var tempArray = 0
+        
         if isSearching
         {
-            return filteredData.count
+            tempArray = 0
+        }
+        else
+        {
+            tempArray = 1
         }
         
-        return allUsers.count
+        //return allUsers.count
+        return temp[tempArray].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -93,6 +105,84 @@ class SearchFollowViewController: UIViewController, UITableViewDelegate, UITable
         }
 
         return cell
+    }
+    
+    func tableView(_ collectionView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        if isSearching
+        {
+            let selectedUser = filteredData[indexPath.row]
+            
+            // Show an alert asking if the user wants to follow the selected user
+            let alert = UIAlertController(title: "Follow?", message: "Would you like to follow \(selectedUser.username)?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let yesButton = UIAlertAction(title: "Yes", style: .default) { (alertAction) in
+                
+                // Do the follow api calls
+                // The api won't allow user to add the same person again
+                self.followSomeone(following: selectedUser.username)
+                
+            }
+            let noButton = UIAlertAction(title: "Cancel", style: .cancel) { (alertAction) in
+            }
+            
+            alert.addAction(yesButton)
+            alert.addAction(noButton)
+            
+            present(alert, animated:true, completion: nil)
+            
+        }
+        else
+        {
+            let selectedUser = allUsers[indexPath.row]
+            
+            // Show an alert asking if the user wants to follow the selected user
+            let alert = UIAlertController(title: "Follow?", message: "Would you like to follow \(selectedUser.username)?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let yesButton = UIAlertAction(title: "Yes", style: .default) { (alertAction) in
+                
+                // Do the follow api calls
+                // The api won't allow user to add the same person again
+                self.followSomeone(following: selectedUser.username)
+                
+            }
+            let noButton = UIAlertAction(title: "Cancel", style: .cancel) { (alertAction) in
+            }
+            
+            alert.addAction(yesButton)
+            alert.addAction(noButton)
+            
+            present(alert, animated:true, completion: nil)
+        } 
+    }
+    
+    func followSomeone(following: String)
+    {
+        // Set the parameters to be sent with the request
+        let parameters: Parameters = ["follower":username!, "following":following]
+        
+        // Make the request
+        Alamofire.request(followUserApi, method: .post, parameters: parameters).responseJSON
+        { (response) in
+            
+            // Getting the json value from the server
+            if let result = response.result.value
+            {
+                // Converting it as NSDictionary
+                let data = result as! NSDictionary
+                
+                let returnMessage = data.value(forKey: "message") as? String
+                
+                if returnMessage == "Successfully Following"
+                {
+                    self.dismiss(animated: true, completion: nil)
+                }
+                else if returnMessage == "Cannot Follow"
+                {
+                    self.simpleAlert(title: "Oops!", message: "Already following")
+                }
+            }
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
@@ -149,11 +239,6 @@ class SearchFollowViewController: UIViewController, UITableViewDelegate, UITable
                 }
                 
                 self.searchTableView.reloadData()
-//                DispatchQueue.main.async
-//                {
-//                    self.searchTableView.reloadData()
-//                }
-                print(self.allUsers.count.description)
             }
         }
     }
@@ -218,6 +303,17 @@ class SearchFollowViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     
+    func simpleAlert(title: String, message: String)
+    {
+        alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .default) { (alertAction) in
+        }
+        
+        alert.addAction(okButton)
+        
+        present(alert, animated:true, completion: nil)
+    }
 
     
 }

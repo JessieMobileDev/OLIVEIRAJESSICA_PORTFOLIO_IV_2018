@@ -1221,7 +1221,7 @@
                                         <state key="normal" image="add"/>
                                         <connections>
                                             <action selector="followSomebody:" destination="gz0-Bk-mdl" eventType="touchUpInside" id="bzU-2l-Ras"/>
-                                            <segue destination="p9b-bg-1uY" kind="show" id="Le6-Zb-pBf"/>
+                                            <segue destination="p9b-bg-1uY" kind="show" identifier="allUsersGo" id="Le6-Zb-pBf"/>
                                         </connections>
                                     </button>
                                 </subviews>

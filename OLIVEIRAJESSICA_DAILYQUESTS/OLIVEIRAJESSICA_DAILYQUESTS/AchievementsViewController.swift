@@ -33,9 +33,15 @@ class AchievementsViewController: UIViewController
             label.clipsToBounds = true
             label.layer.cornerRadius = 20
         }
-        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
         // Update count labels
         getQuestsCount()
+        
+        
     }
 
     override func didReceiveMemoryWarning()
@@ -84,6 +90,7 @@ class AchievementsViewController: UIViewController
                             self.difficultyLabels[2].text = "0"
                         }*/
                         self.difficultyLabels[i].text = "0"
+                        //self.difficultyArrayValues.append(0)
                         print("it's empty")
                         i += 1
                     }
@@ -91,6 +98,7 @@ class AchievementsViewController: UIViewController
                     {
                         // Update the label to specific quests amount
                         self.difficultyLabels[i].text = userData.count.description
+                        //self.difficultyArrayValues.append(userData.count)
                         /*if i == 0
                         {
                             self.difficultyLabels[0].text = userData.count.description
