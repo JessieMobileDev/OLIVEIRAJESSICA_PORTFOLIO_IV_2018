@@ -12,13 +12,15 @@ class Follow
 {
     // Stored properties
     var username: String
+    var avatar: String
     var experience: Int
     var coins: Int
     
     // Initializer
-    init(followUsername: String, followExp: Int, followCoins: Int)
+    init(followUsername: String, followAvatar: String, followExp: Int, followCoins: Int)
     {
         self.username = followUsername
+        self.avatar = followAvatar
         self.experience = followExp
         self.coins = followCoins
     }

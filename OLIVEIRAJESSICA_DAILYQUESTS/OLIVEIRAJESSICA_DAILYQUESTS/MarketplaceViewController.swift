@@ -53,13 +53,27 @@ class MarketplaceViewController: UIViewController
     // The following segue passes the coins to the color themes view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        // Prepare the variable thar will be sent forward
-        let playerCoins = userCoins!
-        let playerUsername = username!
-        
-        // Passing the data
-        guard let destination = segue.destination as? ColorThemesViewController else { return }
-        destination.userCoins = playerCoins
-        destination.username = playerUsername
+        if segue.identifier == "buyColorThemeGo"
+        {
+            // Prepare the variable that will be sent forward
+            let playerCoins = userCoins!
+            let playerUsername = username!
+            
+            // Passing the data
+            guard let destination = segue.destination as? ColorThemesViewController else { return }
+            destination.userCoins = playerCoins
+            destination.username = playerUsername
+        }
+        else if segue.identifier == "buyAvatarGo"
+        {
+            // Prepare the variable that will be sent forward
+            let playerUsername = username!
+            let playerCoins = userCoins!
+            
+            // Passing the data
+            guard let destination = segue.destination as? BuyAvatarViewController else { return }
+            destination.username = playerUsername
+            destination.userCoins = playerCoins
+        }
     }
 }

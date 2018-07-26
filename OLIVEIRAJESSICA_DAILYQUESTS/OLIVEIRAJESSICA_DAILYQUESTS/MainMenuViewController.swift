@@ -190,6 +190,15 @@ class MainMenuViewController: UIViewController
             guard let destination = segue.destination as? AchievementsViewController else { return }
             destination.username = playerUsername
         }
+        else if segue.identifier == "changeAvatarGo"
+        {
+            // Prepare the variable that will be sent forward
+            let playerUsername = tempUsername
+            
+            // Passing data
+            guard let destination = segue.destination as? ChangeAvatarViewController else { return }
+            destination.username = playerUsername
+        }
     }
     
     
